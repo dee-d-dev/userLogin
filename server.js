@@ -6,10 +6,10 @@ const login = require("./routes/login");
 const mongoose = require("mongoose");
 
 app.use(express.json());
-app.use("/user", register);
-app.use("/user", login);
+app.use("/api", register);
+app.use("/api", login);
 
-app.get("/user/home", (req, res) => {
+app.get("/api/home", (req, res) => {
   res.send("Welcome");
 });
 
