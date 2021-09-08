@@ -4,14 +4,13 @@ const dotenv = require("dotenv").config();
 const register = require("./routes/register");
 const login = require("./routes/login");
 const mongoose = require("mongoose");
+const { getHome } = require("./controllers/controller");
 
 app.use(express.json());
 app.use("/api", register);
 app.use("/api", login);
 
-app.get("/api/home", (req, res) => {
-  res.send("Welcome");
-});
+app.get("/api/home", getHome);
 
 mongoose.connect(process.env.MONGO_URI, () => {
   console.log("connected to database successfully");
